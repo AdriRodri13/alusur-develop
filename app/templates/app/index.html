@@ -1,0 +1,1039 @@
+{% extends "app/cliente_base.html" %}
+{% load static %}
+
+{% block meta_description %}
+<meta name="description" content="Aluminios del Sureste - Especialistas en ventanas, puertas y cerramientos de aluminio con eficiencia energética en Alicante. Más de 30 años de experiencia.">
+{% endblock meta_description %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="ventanas aluminio Alicante, puertas aluminio, cerramientos aluminio, carpintería metálica Alicante, eficiencia energética">
+{% endblock meta_keywords %}
+
+{% block og_meta %}
+<meta property="og:title" content="Aluminios del Sureste - Carpintería de Aluminio en Alicante">
+<meta property="og:description" content="Ventanas, puertas y cerramientos en aluminio con eficiencia energética en Alicante. Calidad y profesionalismo garantizados.">
+<meta property="og:type" content="website">
+{% endblock og_meta %}
+
+{% block title %}Aluminios del Sureste - Ventanas y Puertas de Aluminio en Alicante{% endblock title %}
+
+{% block content %}
+    <!-- HEADER / HERO SECTION -->
+    <header id="hero" class="hero-section">
+        <!-- Partículas de fondo -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Contenido del hero mejorado -->
+        <div class="hero-content mt-4 mt-sm-0">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1200">
+                        
+                        <h1 class="hero-title mt-4">
+                            <span class="hero-title-line1">Aluminios del</span>
+                            <span class="hero-title-line2">Sureste</span>
+                            <div class="hero-title-underline"></div>
+                        </h1>
+                        <h2 class="hero-subtitle mb-4">
+                            Especialistas en <span class="text-highlight">ventanas</span>,
+                            <span class="text-highlight">puertas</span> y
+                            <span class="text-highlight">cerramientos</span> de aluminio
+                        </h2>
+                        <div class="hero-badge mb-3">
+                            <i class="fas fa-award me-2"></i>
+                            +30 años de experiencia
+                        </div>
+                        <p class="hero-description mb-5">
+                            Transformamos espacios con soluciones de carpintería de aluminio de alta calidad,
+                            combinando diseño moderno, eficiencia energética y durabilidad excepcional.
+                        </p>
+                        <div class="hero-stats mb-4">
+                            <div class="hero-stat">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Proyectos</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="stat-number">30+</span>
+                                <span class="stat-label">Años</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Garantía</span>
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#contacto" class="btn btn-danger text-white btn-hero me-3 smooth-scroll">
+                                <i class="fas fa-calculator me-2"></i>
+                                Presupuesto Gratuito
+                                <span class="btn-shine"></span>
+                            </a>
+                            <a href="#servicios" class="btn btn-outline-white btn-hero smooth-scroll">
+                                <i class="fas fa-play me-2"></i>
+                                Ver Servicios
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
+                        <div class="hero-visual">
+                            <div class="hero-card-3d">
+                                <div class="hero-card-front">
+                                    <img src="{% static 'app/images/logoalusur.png' %}" alt="logo alusur" class="mb-4">
+                                    <div class="hero-features">
+                                        <div class="feature-item">
+                                            <i class="fas fa-shield-alt text-black"></i>
+                                            <span class="text-black">Garantía</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fa-solid fa-user-tie text-black"></i>
+                                            <span class="text-black">Profesionalidad</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-tools text-black"></i>
+                                            <span class="text-black">Calidad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="floating-elements">
+                                <div class="floating-element" style="--delay: 0s">
+                                    <i class="fas fa-window-maximize"></i>
+                                </div>
+                                <div class="floating-element" style="--delay: 1s">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                                <div class="floating-element" style="--delay: 2s">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator mejorado -->
+        <div class="scroll-indicator">
+            <a href="#presentacion" class="smooth-scroll">
+                <div class="scroll-text">Descubre más</div>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- PRESENTACIÓN -->
+    <section id="presentacion" class="section-padding">
+        <div class="container">
+            {% for texto in texto_presentacion %}
+            <div class="row align-items-center mb-5 presentation-row {% if forloop.counter|divisibleby:2 %}row-reverse{% endif %}">
+                <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-lg-2{% endif %}" data-aos="{% if forloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}" data-aos-duration="800">
+                    <div class="presentation-content">
+                        <h2 class="section-title mb-4">{{ texto.titulo }}</h2>
+                        <div class="section-description">
+                            {{ texto.descripcion|linebreaks }}
+                        </div>
+                        <div class="presentation-features mt-4">
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Calidad garantizada
+                            </div>
+                            <div class="feature-point">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Instalación profesional
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if texto.imagen %}
+                <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-lg-1{% endif %}" data-aos="{% if forloop.counter|divisibleby:2 %}fade-right{% else %}fade-left{% endif %}" data-aos-duration="800" data-aos-delay="200">
+                    <div class="presentation-image-container">
+                        <div class="presentation-image-wrapper">
+                            <img src="{{ texto.imagen.url }}" alt="{{ texto.titulo }}" class="img-fluid presentation-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- TARJETAS ESTÁTICAS -->
+    <section id="valores" class="section-padding bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title mb-3">
+                        Ventanas, puertas y cerramientos en aluminio con eficiencia energética en Alicante
+                    </h2>
+                    <p class="section-subtitle">
+                        Descubre las razones que nos convierten en la opción preferida para soluciones de carpintería de aluminio en toda la provincia de Alicante.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Tarjeta 1: Compromiso con la Calidad -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <article class="value-card h-100">
+                        <div class="value-icon">
+                            <i class="fas fa-toolbox"></i>
+                        </div>
+                        <h3 class="value-title">Compromiso con la Calidad</h3>
+                        <div class="value-divider"></div>
+                        <p class="value-description">
+                            Nos comprometemos a ofrecer solo lo mejor en cada proyecto. Trabajamos con sistemas de última generación que proporcionan un aislamiento térmico y acústico superior, creando espacios más confortables, silenciosos y con menor consumo energético durante todo el año.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Tarjeta 2: Experiencia y Profesionalismo -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <article class="value-card h-100">
+                        <div class="value-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3 class="value-title">Experiencia y Profesionalismo</h3>
+                        <div class="value-divider"></div>
+                        <p class="value-description">
+                            Nuestras tres décadas en el sector se reflejan en cada trabajo. Contamos con un equipo de técnicos y carpinteros altamente cualificados que garantizan acabados impecables y una instalación perfecta. Tu tranquilidad es nuestra prioridad, por eso nos ocupamos de cada detalle.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- Tarjeta 3: Materiales de Primera Calidad -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <article class="value-card h-100">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="value-title">Materiales de Primera Calidad</h3>
+                        <div class="value-divider"></div>
+                        <p class="value-description">
+                            Seleccionamos cuidadosamente cada material, colaborando sólo con proveedores de reconocido prestigio. Nuestros sistemas de aluminio combinan resistencia, belleza y funcionalidad, asegurando que tus ventanas, puertas y cerramientos mantengan sus prestaciones perfectas durante décadas.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title mb-3">Nuestros Servicios</h2>
+                    <p class="section-subtitle">Soluciones completas en carpintería de aluminio</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                {% for servicio in servicios %}
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ forloop.counter|add:100 }}">
+                    <article class="service-card h-100 d-flex flex-column">
+                        <div class="service-image-container">
+                            {% if servicio.imagen %}
+                            <div class="service-image">
+                                <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}" class="img-fluid">
+                                <!--
+                                    <div class="service-overlay">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                -->
+                            </div>
+                            {% else %}
+                            <div class="service-image service-placeholder">
+                                <i class="fas fa-tools service-placeholder-icon"></i>
+                                <div class="service-overlay">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="service-content flex-grow-1 d-flex flex-column">
+                            <h3 class="service-title">{{ servicio.titulo }}</h3>
+                            <div class="service-description flex-grow-1">
+                                <p>{{ servicio.descripcion|truncatewords:25 }}</p>
+                            </div>
+                            <div class="service-footer mt-auto">
+                                <a class="btn btn-primary btn-service" href="{{ servicio.get_absolute_url }}">
+                                    <i class="fas fa-arrow-right me-2"></i>
+                                    Más información
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTES DESTACADOS -->
+    <section id="empresas" class="section-padding bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title mb-3">Clientes Destacados</h2>
+                    <p class="section-subtitle">En ALUSUR hemos realizado obras para empresas de talla mundial</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in">
+                    <div class="company-card">
+                        <span class="brand-name brand-stradivarius">Stradivarius</span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="company-card">
+                        <span class="brand-name brand-zara">Zara</span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="company-card">
+                        <span class="brand-name brand-santander">Santander</span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="company-card">
+                        <span class="brand-name brand-inditex">Inditex</span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="company-card">
+                        <span class="brand-name brand-massimo">Massimo Dutti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- PROYECTOS CON LAYOUT: BOTÓN | CONTENIDO | BOTÓN -->
+<section id="proyectos" class="section-padding">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <h2 class="section-title mb-3">Proyectos Realizados</h2>
+                <p class="section-subtitle">Algunos de nuestros trabajos más destacados</p>
+            </div>
+        </div>
+
+        <!-- Layout Horizontal: Botón - Swiper - Botón -->
+        <div class="projects-layout" data-aos="fade-up" data-aos-delay="200">
+            <!-- Botón Izquierdo -->
+            <div class="swiper-navigation-container">
+                <button class="swiper-button-prev projects-btn-prev">
+                    
+                </button>
+            </div>
+
+            <!-- Swiper Container -->
+            <div class="projects-swiper-wrapper">
+                <div class="swiper projects-swiper">
+                    <div class="swiper-wrapper">
+                        {% for proyecto in proyecto_finalizado %}
+                        <div class="swiper-slide">
+                            <a href="{{ proyecto.get_absolute_url }}" class="project-card h-100 d-flex flex-column text-decoration-none">
+                                <div class="project-image-container">
+                                    {% if proyecto.imagen %}
+                                    <div class="project-image">
+                                        <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}" class="img-fluid">
+                                        <div class="project-overlay">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="project-image project-placeholder">
+                                        <i class="fas fa-image project-placeholder-icon"></i>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="project-content flex-grow-1 d-flex flex-column">
+                                    <h3 class="project-title">{{ proyecto.titulo }}</h3>
+                                    <div class="project-description flex-grow-1">
+                                        <p>{{ proyecto.descripcion|truncatewords:20 }}</p>
+                                    </div>
+                                    <div class="project-meta mt-auto">
+                                        <div class="project-category">
+                                            <i class="fas fa-tag me-1"></i>
+                                            Carpintería de Aluminio
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Derecho -->
+            <div class="swiper-navigation-container">
+                <button class="swiper-button-next projects-btn-next">
+                    
+                </button>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination projects-pagination"></div>
+    </div>
+</section>
+
+    <!-- BLOG PREVIEW SECTION -->
+    {% include 'app/includes/blog_preview.html' %}
+
+    <!-- CONTACTO VISUAL -->
+    <section id="contacto-visual" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Mapa -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    {% include 'app/includes/mapa.html' %}
+                </div>
+
+                <!-- Instagram -->
+                <div class="col-lg-6">
+                    {% include 'app/includes/instagram.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASISTENTE PERSONAL FLOTANTE -->
+    <div class="ai-assistant-container" id="aiAssistant">
+        <!-- Botón flotante del asistente -->
+        <div class="ai-assistant-toggle" id="aiToggle">
+            <div class="ai-assistant-icon">
+                <img src="{% static 'app/images/imagen_asistente.png' %}" alt="Asistente ALUSUR" class="ai-avatar">
+                <div class="ai-pulse-ring"></div>
+                <div class="ai-notification-badge" id="aiNotificationBadge">1</div>
+            </div>
+        </div>
+
+        <!-- Chat del asistente -->
+        <div class="ai-chat-window" id="aiChatWindow">
+            <!-- Header del chat -->
+            <div class="ai-chat-header">
+                <div class="ai-header-info">
+                    <div class="ai-header-avatar">
+                        <img src="{% static 'app/images/imagen_asistente.png' %}" alt="Asistente ALUSUR">
+                        <div class="ai-status-indicator"></div>
+                    </div>
+                    <div class="ai-header-text">
+                        <h4 class="ai-assistant-name">AluAI</h4>
+                        <span class="ai-status-text">En línea • Responde al instante</span>
+                    </div>
+                </div>
+                <div class="ai-header-actions">
+                    <button class="ai-minimize-btn" id="aiMinimize">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="ai-close-btn" id="aiClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Área de mensajes -->
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <!-- Mensaje de bienvenida -->
+                <div class="ai-message ai-message-bot">
+                    <div class="ai-message-avatar">
+                        <img src="{% static 'app/images/imagen_asistente.png' %}" alt="Asistente">
+                    </div>
+                    <div class="ai-message-content">
+                        <div class="ai-message-bubble">
+                            <p>¡Hola! 👋 Soy el asistente virtual de <strong>Aluminios del Sureste</strong>.</p>
+                            <p>Estoy aquí para ayudarte con:</p>
+                            <ul>
+                                <li>Información sobre nuestros servicios</li>
+                                <li>Asesoramiento técnico</li>
+                                <li>Dudas sobre proyectos</li>
+                            </ul>
+                            <p>¿En qué puedo ayudarte hoy?</p>
+                        </div>
+                        <div class="ai-message-time">Ahora</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área de escritura -->
+            <div class="ai-chat-input-area">
+                <div class="ai-input-container">
+                    <div class="ai-input-wrapper">
+                        <input type="text" class="ai-chat-input" placeholder="Escribe tu mensaje..." id="aiChatInput">
+                        <button class="ai-emoji-btn" type="button">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                    <button class="ai-send-btn" id="aiSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="ai-input-footer">
+                    <span class="ai-powered-by">
+                        <i class="fas fa-robot"></i>
+                        Powered by ALUSUR IA
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del DOM
+    const aiToggle = document.getElementById('aiToggle');
+    const aiChatWindow = document.getElementById('aiChatWindow');
+    const aiClose = document.getElementById('aiClose');
+    const aiMinimize = document.getElementById('aiMinimize');
+    const aiSendBtn = document.getElementById('aiSendBtn');
+    const aiChatInput = document.getElementById('aiChatInput');
+    const aiChatMessages = document.getElementById('aiChatMessages');
+    const aiNotificationBadge = document.getElementById('aiNotificationBadge');
+    
+    // Estado del chat
+    let isChatOpen = false;
+    let isMinimized = false;
+    let isTyping = false;
+    let conversationHistory = []; // Array para almacenar {pregunta, respuesta}
+    
+    // CSRF Token para Django
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+    
+    // Inyectar CSS para la animación de escritura
+    function injectTypewriterCSS() {
+        const additionalCSS = `
+        /* Cursor parpadeante para efecto de escritura */
+        .ai-typing-cursor {
+            display: inline-block;
+            background-color: var(--color-primario);
+            width: 2px;
+            height: 1.2em;
+            margin-left: 2px;
+            animation: ai-cursor-blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes ai-cursor-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Asegurar que el texto se muestre en línea */
+        .ai-message-text {
+            display: inline;
+            line-height: 1.5;
+        }
+
+        /* Efecto de fade-in suave para cada carácter */
+        .ai-message-text * {
+            animation: ai-char-fade-in 0.3s ease-in;
+        }
+
+        @keyframes ai-char-fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = additionalCSS;
+        document.head.appendChild(style);
+    }
+    
+    // Función para abrir/cerrar el chat
+    function toggleChat() {
+        if (isChatOpen) {
+            closeChat();
+        } else {
+            openChat();
+        }
+    }
+    
+    function openChat() {
+        aiChatWindow.style.display = 'flex';
+        aiChatWindow.classList.add('show');
+        isChatOpen = true;
+        isMinimized = false;
+        aiChatWindow.classList.remove('minimized');
+        
+        // Ocultar badge de notificación
+        if (aiNotificationBadge) {
+            aiNotificationBadge.style.display = 'none';
+        }
+        
+        // Focus en el input
+        setTimeout(() => {
+            aiChatInput.focus();
+        }, 300);
+    }
+    
+    function closeChat() {
+        aiChatWindow.style.display = 'none';
+        aiChatWindow.classList.remove('show');
+        isChatOpen = false;
+        isMinimized = false;
+        aiChatWindow.classList.remove('minimized');
+    }
+    
+    // Función para minimizar/restaurar
+    function toggleMinimize() {
+        if (isMinimized) {
+            // Restaurar
+            aiChatWindow.classList.remove('minimized');
+            isMinimized = false;
+            aiMinimize.innerHTML = '<i class="fas fa-minus"></i>';
+        } else {
+            // Minimizar
+            aiChatWindow.classList.add('minimized');
+            isMinimized = true;
+            aiMinimize.innerHTML = '<i class="fas fa-window-restore"></i>';
+        }
+    }
+    
+    // Función para scroll al final de los mensajes
+    function scrollToBottom() {
+        setTimeout(() => {
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        }, 100);
+    }
+    
+    // Función para escapar HTML
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+    
+    // Función para formatear tiempo
+    function getCurrentTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    }
+    
+    // Función para calcular velocidad según longitud del texto
+    function calculateTypingSpeed(textLength) {
+        if (textLength < 50) return 35;      // Textos cortos: más lento
+        if (textLength < 150) return 25;     // Textos medianos: velocidad normal
+        if (textLength < 300) return 20;     // Textos largos: más rápido
+        return 15;                           // Textos muy largos: muy rápido
+    }
+    
+    // Función para limpiar y corregir HTML malformado
+    function cleanHtmlText(text) {
+        // Corregir tags malformados comunes
+        text = text.replace(/([^>])<\/span>/g, '$1</span>'); // Corregir </span> sueltos
+        text = text.replace(/<span class="([^"]*)"([^>]*?)>/g, '<span class="$1">'); // Limpiar atributos extra
+        
+        // Remover emojis problemáticos que pueden causar errores de encoding
+        text = text.replace(/��/g, '😊'); // Reemplazar emojis rotos
+        
+        // Asegurar que los spans estén bien cerrados
+        const openSpans = (text.match(/<span/g) || []).length;
+        const closeSpans = (text.match(/<\/span>/g) || []).length;
+        
+        if (openSpans > closeSpans) {
+            // Añadir </span> faltantes
+            for (let i = 0; i < (openSpans - closeSpans); i++) {
+                text += '</span>';
+            }
+        }
+        
+        return text;
+    }
+
+    // Función mejorada para animar escritura letra por letra
+    function typeWriterEffect(element, text, speed = 30, callback = null) {
+        // Limpiar y corregir el HTML
+        text = cleanHtmlText(text);
+        
+        // Crear un contenedor temporal para parsear el HTML
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = text;
+        
+        // Extraer todos los nodos de texto y mantener información de sus elementos padre
+        const textSequence = [];
+        
+        function extractTextNodes(node, parentClasses = []) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const textContent = node.textContent;
+                for (let i = 0; i < textContent.length; i++) {
+                    textSequence.push({
+                        char: textContent[i],
+                        classes: [...parentClasses]
+                    });
+                }
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                const nodeClasses = [...parentClasses];
+                if (node.className) {
+                    nodeClasses.push(node.className);
+                }
+                
+                for (let child of node.childNodes) {
+                    extractTextNodes(child, nodeClasses);
+                }
+            }
+        }
+        
+        extractTextNodes(tempContainer);
+        
+        // Limpiar el elemento destino
+        element.innerHTML = '';
+        
+        // Crear cursor
+        const cursor = document.createElement('span');
+        cursor.className = 'ai-typing-cursor';
+        cursor.innerHTML = '|';
+        
+        let currentIndex = 0;
+        let currentSpan = null;
+        let currentClasses = '';
+        
+        function typeNextChar() {
+            if (currentIndex < textSequence.length) {
+                const charData = textSequence[currentIndex];
+                const newClasses = charData.classes.join(' ');
+                
+                // Si las clases han cambiado, crear nuevo span
+                if (newClasses !== currentClasses) {
+                    currentClasses = newClasses;
+                    
+                    if (newClasses) {
+                        currentSpan = document.createElement('span');
+                        currentSpan.className = newClasses;
+                        element.appendChild(currentSpan);
+                    } else {
+                        currentSpan = null;
+                    }
+                }
+                
+                // Añadir el carácter
+                const textNode = document.createTextNode(charData.char);
+                if (currentSpan) {
+                    currentSpan.appendChild(textNode);
+                } else {
+                    element.appendChild(textNode);
+                }
+                
+                // Remover cursor y volver a añadir al final
+                if (cursor.parentNode) {
+                    cursor.remove();
+                }
+                element.appendChild(cursor);
+                
+                currentIndex++;
+                
+                // Calcular delay
+                let delay = speed;
+                const char = charData.char;
+                if (char === '.' || char === '!' || char === '?') {
+                    delay = speed * 4;
+                } else if (char === ',' || char === ';') {
+                    delay = speed * 2;
+                } else if (char === ' ') {
+                    delay = speed * 0.5;
+                }
+                
+                setTimeout(typeNextChar, delay + Math.random() * 15);
+                
+                // Scroll periódico
+                if (currentIndex % 15 === 0) {
+                    scrollToBottom();
+                }
+            } else {
+                // Animación completada
+                if (cursor.parentNode) {
+                    cursor.remove();
+                }
+                if (callback) callback();
+            }
+        }
+        
+        // Iniciar animación
+        element.appendChild(cursor);
+        typeNextChar();
+    }
+    
+    // Función para añadir mensaje del usuario
+    function addUserMessage(message) {
+        const messageHtml = `
+            <div class="ai-message ai-message-user">
+                <div class="ai-message-content">
+                    <div class="ai-message-bubble">
+                        <p>${escapeHtml(message)}</p>
+                    </div>
+                    <div class="ai-message-time">${getCurrentTime()}</div>
+                </div>
+            </div>
+        `;
+        
+        aiChatMessages.insertAdjacentHTML('beforeend', messageHtml);
+        scrollToBottom();
+    }
+    
+    // Función para añadir mensaje del bot con animación de escritura
+    function addBotMessageAnimated(message) {
+        // Crear estructura del mensaje
+        const messageHtml = `
+            <div class="ai-message ai-message-bot">
+                <div class="ai-message-avatar">
+                    <img src="/static/app/images/imagen_asistente.png" alt="AluAI">
+                </div>
+                <div class="ai-message-content">
+                    <div class="ai-message-bubble">
+                        <div class="ai-message-text"></div>
+                    </div>
+                    <div class="ai-message-time">${getCurrentTime()}</div>
+                </div>
+            </div>
+        `;
+        
+        // Añadir al DOM
+        aiChatMessages.insertAdjacentHTML('beforeend', messageHtml);
+        
+        // Obtener el elemento donde escribir
+        const messageElement = aiChatMessages.lastElementChild.querySelector('.ai-message-text');
+        
+        // Scroll inicial
+        scrollToBottom();
+        
+        // Calcular velocidad según longitud
+        const speed = calculateTypingSpeed(message.length);
+        
+        // Iniciar animación de escritura
+        typeWriterEffect(messageElement, message, speed, () => {
+            // Callback cuando termine la animación
+            scrollToBottom();
+        });
+    }
+    
+    // Función para mostrar indicador de typing
+    function showTypingIndicator() {
+        const typingHtml = `
+            <div class="ai-message ai-message-bot ai-typing-message">
+                <div class="ai-message-avatar">
+                    <img src="/static/app/images/imagen_asistente.png" alt="AluAI">
+                </div>
+                <div class="ai-message-content">
+                    <div class="ai-typing-indicator">
+                        <div class="ai-typing-dot"></div>
+                        <div class="ai-typing-dot"></div>
+                        <div class="ai-typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        aiChatMessages.insertAdjacentHTML('beforeend', typingHtml);
+        scrollToBottom();
+    }
+    
+    // Función para remover indicador de typing
+    function removeTypingIndicator() {
+        const typingMessage = document.querySelector('.ai-typing-message');
+        if (typingMessage) {
+            typingMessage.remove();
+        }
+    }
+    
+    // Función para mostrar error
+    function showError(errorMessage) {
+        const errorHtml = `
+            <div class="ai-message ai-message-bot">
+                <div class="ai-message-avatar">
+                    <img src="/static/app/images/imagen_asistente.png" alt="AluAI">
+                </div>
+                <div class="ai-message-content">
+                    <div class="ai-message-bubble" style="background: #fee; border-left: 4px solid #e74c3c;">
+                        <p>❌ Lo siento, ha ocurrido un error: ${escapeHtml(errorMessage)}</p>
+                        <p>Por favor, intenta nuevamente o contacta directamente con ALUSUR.</p>
+                    </div>
+                    <div class="ai-message-time">${getCurrentTime()}</div>
+                </div>
+            </div>
+        `;
+        
+        aiChatMessages.insertAdjacentHTML('beforeend', errorHtml);
+        scrollToBottom();
+    }
+    
+    // Función principal para enviar mensaje a la IA (CON ANIMACIÓN)
+    async function sendMessageToAI(userMessage) {
+        if (isTyping) return;
+        
+        isTyping = true;
+        
+        try {
+            // Mostrar indicador de typing
+            showTypingIndicator();
+            
+            // Preparar datos para enviar
+            const requestData = {
+                mensaje: userMessage,
+                historial: conversationHistory
+            };
+            
+            // Hacer petición al backend
+            const response = await fetch('/asistente-chat/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify(requestData)
+            });
+            
+            const data = await response.json();
+            
+            // Remover indicador de typing
+            removeTypingIndicator();
+            
+            if (data.success) {
+                // Añadir respuesta con animación de escritura
+                addBotMessageAnimated(data.respuesta);
+                
+                // Guardar en historial
+                conversationHistory.push({
+                    pregunta: userMessage,
+                    respuesta: data.respuesta
+                });
+                
+                // Limitar historial a últimos 10 intercambios
+                if (conversationHistory.length > 10) {
+                    conversationHistory = conversationHistory.slice(-10);
+                }
+                
+            } else {
+                throw new Error(data.error || 'Error desconocido');
+            }
+            
+        } catch (error) {
+            console.error('Error al comunicarse con la IA:', error);
+            removeTypingIndicator();
+            showError(error.message || 'No se pudo conectar con el servidor');
+        } finally {
+            isTyping = false;
+        }
+    }
+    
+    // Función para enviar mensaje
+    function sendMessage() {
+        const message = aiChatInput.value.trim();
+        
+        if (message === '' || isTyping) return;
+        
+        // Añadir mensaje del usuario
+        addUserMessage(message);
+        
+        // Limpiar input
+        aiChatInput.value = '';
+        
+        // Actualizar estado del botón
+        aiSendBtn.style.opacity = '0.5';
+        aiSendBtn.style.cursor = 'not-allowed';
+        
+        // Enviar a la IA
+        sendMessageToAI(message);
+    }
+    
+    // Event listeners
+    if (aiToggle) {
+        aiToggle.addEventListener('click', toggleChat);
+    }
+    
+    if (aiClose) {
+        aiClose.addEventListener('click', closeChat);
+    }
+    
+    if (aiMinimize) {
+        aiMinimize.addEventListener('click', toggleMinimize);
+    }
+    
+    if (aiSendBtn) {
+        aiSendBtn.addEventListener('click', sendMessage);
+    }
+    
+    if (aiChatInput) {
+        // Enviar con Enter
+        aiChatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+        
+        // Deshabilitar/habilitar botón según contenido
+        aiChatInput.addEventListener('input', function() {
+            const hasText = this.value.trim().length > 0;
+            aiSendBtn.style.opacity = hasText ? '1' : '0.5';
+            aiSendBtn.style.cursor = hasText ? 'pointer' : 'not-allowed';
+        });
+    }
+    
+    // Event listeners para sugerencias rápidas (si existen)
+    const suggestionItems = document.querySelectorAll('.ai-suggestion-item');
+    suggestionItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const suggestionText = this.querySelector('span').textContent;
+            aiChatInput.value = suggestionText;
+            sendMessage();
+        });
+    });
+    
+    // Mostrar badge de notificación después de 10 segundos si no ha abierto el chat
+    setTimeout(() => {
+        if (!isChatOpen && aiNotificationBadge) {
+            aiNotificationBadge.style.display = 'flex';
+        }
+    }, 10000);
+    
+    // Estado inicial del botón de envío
+    if (aiSendBtn) {
+        aiSendBtn.style.opacity = '0.5';
+        aiSendBtn.style.cursor = 'not-allowed';
+    }
+    
+    // Inicializar CSS de animación
+    injectTypewriterCSS();
+
+});
+</script>
+
+<!-- Blog Preview JavaScript -->
+<script src="{% static 'app/blog/blog-preview.js' %}"></script>
+{% endblock extra_js %}
