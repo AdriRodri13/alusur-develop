@@ -151,6 +151,41 @@
                         {% endif %}
                     </li>
                     
+                    <!-- Selector de idioma -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% load i18n %}
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% if LANGUAGE_CODE == 'es' %}
+                                <img src="https://flagcdn.com/w20/es.png" alt="Español" width="20" class="me-1"> ES
+                            {% else %}
+                                <img src="https://flagcdn.com/w20/gb.png" alt="English" width="20" class="me-1"> EN
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li>
+                                <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                    <input type="hidden" name="language" value="es">
+                                    <button type="submit" class="dropdown-item">
+                                        <img src="https://flagcdn.com/w20/es.png" alt="Español" width="20" class="me-2"> Español
+                                    </button>
+                                </form>
+                            </li>
+                            <li>
+                                <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                    <input type="hidden" name="language" value="en">
+                                    <button type="submit" class="dropdown-item">
+                                        <img src="https://flagcdn.com/w20/gb.png" alt="English" width="20" class="me-2"> English
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    
                     <!-- Botones sociales para escritorio (dentro del menú) -->
                     <li class="nav-item mt-2 mt-sm-0 d-none d-lg-block">
                         <div class="social-links">

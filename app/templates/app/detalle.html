@@ -1,5 +1,7 @@
 {% extends 'app/cliente_base.html' %}
 {% load static %}
+{% load i18n %}
+{% load i18n_extras %}
 
 {% block title %}
     {% if tipo_contenido == 'servicio' %}
@@ -52,15 +54,15 @@
                         {% endif %}
                     </a>
                     <i class="fas fa-chevron-right breadcrumb-separator" aria-hidden="true"></i>
-                    <span class="current-page" aria-current="page">{{ item.titulo }}</span>
+                    <span class="current-page" aria-current="page">{{ item|translate_field:"titulo" }}</span>
                 </nav>
 
                 <!-- Título principal -->
-                <h1 class="detail-title">{{ item.titulo }}</h1>
+                <h1 class="detail-title">{{ item|translate_field:"titulo" }}</h1>
                 
                 <!-- Descripción -->
                 {% if item.descripcion %}
-                    <p class="detail-description">{{ item.descripcion }}</p>
+                    <p class="detail-description">{{ item|translate_field:"descripcion" }}</p>
                 {% endif %}
             </div>
         </div>
@@ -82,10 +84,10 @@
                                 <div class="paragraph-with-image {% if forloop.counter|divisibleby:2 %}image-left{% else %}image-right{% endif %}">
                                     <div class="paragraph-text-container">
                                         {% if parrafo.titulo %}
-                                            <h2 class="titulo-parrafo">{{ parrafo.titulo }}</h2>
+                                            <h2 class="titulo-parrafo">{{ parrafo|translate_field:"titulo" }}</h2>
                                         {% endif %}
                                         <div class="paragraph-content">
-                                            {{ parrafo.contenido|safe }}
+                                            {{ parrafo|translate_field:"contenido"|safe }}
                                         </div>
                                     </div>
                                     
@@ -102,10 +104,10 @@
                                 <!-- Párrafo sin imagen - ancho completo -->
                                 <div class="paragraph-full-width">
                                     {% if parrafo.titulo %}
-                                        <h2 class="titulo-parrafo">{{ parrafo.titulo }}</h2>
+                                        <h2 class="titulo-parrafo">{{ parrafo|translate_field:"titulo" }}</h2>
                                     {% endif %}
                                     <div class="paragraph-content">
-                                        {{ parrafo.contenido|safe }}
+                                        {{ parrafo|translate_field:"contenido"|safe }}
                                     </div>
                                 </div>
                             {% endif %}

@@ -8,7 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-temporal")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+# Arreglar CSRF_TRUSTED_ORIGINS para evitar lista con string vacío
+csrf_origins = os.getenv("CSRF_TRUSTED_ORIGINS", "")
+CSRF_TRUSTED_ORIGINS = [origin for origin in csrf_origins.split(",") if origin]
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
@@ -33,6 +35,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # Soporte multiidioma
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -74,10 +77,22 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # --- LOCALIZACIÓN ---
-LANGUAGE_CODE = "es-es"
+LANGUAGE_CODE = "es"  # Idioma por defecto
 TIME_ZONE = "Europe/Madrid"
-USE_I18N = True
+USE_I18N = True  # Habilitar internacionalización
+USE_L10N = True  # Habilitar localización de formatos
 USE_TZ = True
+
+# Idiomas disponibles
+LANGUAGES = [
+    ('es', 'Español'),
+    ('en', 'English'),
+]
+
+# Ruta para archivos de traducción
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 # --- ARCHIVOS ESTÁTICOS ---
 STATIC_URL = "/static/"

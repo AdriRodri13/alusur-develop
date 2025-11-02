@@ -1,5 +1,7 @@
 {% extends "app/cliente_base.html" %}
 {% load static %}
+{% load i18n %}
+{% load i18n_extras %}
 
 {% block title %}Blog de Carpintería de Aluminio - Aluminios del Sureste{% endblock title %}
 
@@ -61,11 +63,11 @@
                             
                             <div class="blog-card-content">
                                 <h2 class="blog-card-title">
-                                    <a href="/blog/{{ entrada.slug }}/">{{ entrada.titulo }}</a>
+                                    <a href="/blog/{{ entrada.slug }}/">{{ entrada|translate_field:"titulo" }}</a>
                                 </h2>
                                 
                                 <p class="blog-card-description">
-                                    {{ entrada.descripcion }}
+                                    {{ entrada|translate_field:"descripcion" }}
                                 </p>
                                 
                                 <div class="blog-card-meta">

@@ -1,5 +1,7 @@
 {% extends "app/cliente_base.html" %}
 {% load static %}
+{% load i18n %}
+{% load i18n_extras %}
 
 {% block meta_description %}
 <meta name="description" content="Aluminios del Sureste - Especialistas en ventanas, puertas y cerramientos de aluminio con eficiencia energética en Alicante. Más de 30 años de experiencia.">
@@ -135,9 +137,9 @@
             <div class="row align-items-center mb-5 presentation-row {% if forloop.counter|divisibleby:2 %}row-reverse{% endif %}">
                 <div class="col-lg-6 {% if forloop.counter|divisibleby:2 %}order-lg-2{% endif %}" data-aos="{% if forloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}" data-aos-duration="800">
                     <div class="presentation-content">
-                        <h2 class="section-title mb-4">{{ texto.titulo }}</h2>
+                        <h2 class="section-title mb-4">{{ texto|translate_field:"titulo" }}</h2>
                         <div class="section-description">
-                            {{ texto.descripcion|linebreaks }}
+                            {{ texto|translate_field:"descripcion"|linebreaks }}
                         </div>
                         <div class="presentation-features mt-4">
                             <div class="feature-point">
@@ -261,9 +263,9 @@
                             {% endif %}
                         </div>
                         <div class="service-content flex-grow-1 d-flex flex-column">
-                            <h3 class="service-title">{{ servicio.titulo }}</h3>
+                            <h3 class="service-title">{{ servicio|translate_field:"titulo" }}</h3>
                             <div class="service-description flex-grow-1">
-                                <p>{{ servicio.descripcion|truncatewords:25 }}</p>
+                                <p>{{ servicio|translate_field:"descripcion"|truncatewords:25 }}</p>
                             </div>
                             <div class="service-footer mt-auto">
                                 <a class="btn btn-primary btn-service" href="{{ servicio.get_absolute_url }}">
@@ -360,9 +362,9 @@
                                     {% endif %}
                                 </div>
                                 <div class="project-content flex-grow-1 d-flex flex-column">
-                                    <h3 class="project-title">{{ proyecto.titulo }}</h3>
+                                    <h3 class="project-title">{{ proyecto|translate_field:"titulo" }}</h3>
                                     <div class="project-description flex-grow-1">
-                                        <p>{{ proyecto.descripcion|truncatewords:20 }}</p>
+                                        <p>{{ proyecto|translate_field:"descripcion"|truncatewords:20 }}</p>
                                     </div>
                                     <div class="project-meta mt-auto">
                                         <div class="project-category">

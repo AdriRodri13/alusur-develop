@@ -8,6 +8,9 @@ from django.urls import reverse
 class TextoPresentacion(models.Model):
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
+    # Campos en inglés
+    titulo_en = models.CharField(max_length=100, blank=True, null=True, verbose_name="Título (English)")
+    descripcion_en = models.TextField(blank=True, null=True, verbose_name="Descripción (English)")
     imagen = models.ImageField(
         storage=seleccionar_storage(),
         upload_to='TextoPresentacion/',
@@ -19,6 +22,9 @@ class TextoPresentacion(models.Model):
 class Servicio(models.Model):
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
+    # Campos en inglés
+    titulo_en = models.CharField(max_length=100, blank=True, null=True, verbose_name="Título (English)")
+    descripcion_en = models.TextField(blank=True, null=True, verbose_name="Descripción (English)")
     imagen = models.ImageField(
         storage=seleccionar_storage(), #si estamos en debug, se sube al media local, si no se sube a clodynary
         upload_to='Servicio/',
@@ -36,6 +42,9 @@ class Servicio(models.Model):
 class ProyectoFinalizado(models.Model):
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
+    # Campos en inglés
+    titulo_en = models.CharField(max_length=100, blank=True, null=True, verbose_name="Título (English)")
+    descripcion_en = models.TextField(blank=True, null=True, verbose_name="Descripción (English)")
     imagen = models.ImageField(
         storage=seleccionar_storage(),
         upload_to='ProyectoFinalizado/',
@@ -50,6 +59,9 @@ class ProyectoFinalizado(models.Model):
 class EntradaBlog(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField(help_text="Descripción breve que aparecerá en el listado del blog")
+    # Campos en inglés
+    titulo_en = models.CharField(max_length=200, blank=True, null=True, verbose_name="Título (English)")
+    descripcion_en = models.TextField(blank=True, null=True, verbose_name="Descripción (English)", help_text="Descripción breve en inglés")
     imagen_portada = models.ImageField(
         storage=seleccionar_storage(),
         upload_to='EntradaBlog/',
@@ -110,6 +122,9 @@ class Parrafo(models.Model):
     )
     titulo = models.CharField(max_length=100, blank=True, null=True)
     contenido = models.TextField()
+    # Campos en inglés
+    titulo_en = models.CharField(max_length=100, blank=True, null=True, verbose_name="Título (English)")
+    contenido_en = models.TextField(blank=True, null=True, verbose_name="Contenido (English)")
     imagen = models.ImageField(
         storage=seleccionar_storage(),
         upload_to="Parrafo/",
